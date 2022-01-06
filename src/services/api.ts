@@ -3,6 +3,9 @@ import axios from "axios";
 const api = axios.create({
   baseURL:`${process.env.REACT_APP_BASE_URL}`
 })
+export const apiGenres = axios.create({
+  baseURL:`${process.env.REACT_APP_BASE_GENRES_URL}`
+})
 
 // api.defaults.headers.common = {
 //   "Content-Type": "application/x-www-form-urlencoded"

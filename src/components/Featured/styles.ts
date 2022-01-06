@@ -9,6 +9,17 @@ export const FeaturedContainer = styled.div`
       width: 90%;
       display: flex;
       justify-content: space-around;
+      span{
+        cursor: pointer;
+        transition: 400ms;
+        &.selected{
+         padding: 4px 6px;
+         background-color: white;
+         color: ${({theme})=> theme.color.black};;
+         border-radius: 10px;
+         font-weight: bold;
+        }
+      }
     }
     .cards{
       display: flex;

@@ -11,7 +11,32 @@ import { IMovie } from '../../services/resources/movies';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
 
-const categories = ['Ação','Aventura','Animação','Comédia','Crime','Documentário']
+const categories = [
+  {
+    name:'Ação',
+    id:28
+  },
+  {
+    name:'Aventura',
+    id:12
+  },
+  {
+    name:'Animação',
+    id:16
+  },
+  {
+    name:'Comédia',
+    id:35
+  },
+  {
+    name:'Crime',
+    id:80
+  },
+  {
+    name:'Documentário',
+    id:99
+  }
+]
 
 
 
@@ -20,26 +45,48 @@ const Featured: React.FC = () => {
   const navigate = useNavigate()
   const itemsPerPage = 4
   const [currentMovies, setCurrentMovies] = useState<IMovie[]>([])
+  const [filteredMovies, setfilteredMovies] = useState<IMovie[]>([])
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
+  const [filter, setFilter] = useState<number[]>([])
 
   
   type TClickPaginate ={
     selected: number
   }
+  const handleCategoryclick = (e:React.MouseEvent, id:number) => {
+    const span = e.target as HTMLSpanElement
+    span.classList.contains('selected') ? filter.splice(filter.indexOf(id),1) :filter.push(id)
+    span.classList.toggle('selected')
+    let moviesFiltered = movies.filter(movie => {
+      let match = false
+      filter.forEach(categorie=> {
+        if (movie.genre_ids.includes(categorie)) return match = true
+      })
+      return match
+    })
+    if (moviesFiltered.length === 0 ) moviesFiltered = [...movies]
+    setfilteredMovies(moviesFiltered)
+    setCurrentMovies(moviesFiltered.slice(0, itemsPerPage))
+    setPageCount(Math.ceil(moviesFiltered.length / itemsPerPage));
+    setFilter(filter)
+  };
   const handleCardClick = (id:number) => {
     navigate(`/movies/${id}`)
   };
-  const handlePageClick = ({selected}:TClickPaginate) => {
+  const handlePaginationClick = ({selected}:TClickPaginate) => {
     const newOffset = (selected * itemsPerPage) % movies.length;
     setItemOffset(newOffset);
   };
 
+  
+
   useEffect(() => {
+    const moviesToPaginate = filteredMovies.length>0 ? filteredMovies : movies
     if (movies.length > 0) {
       const endOffset = itemOffset + itemsPerPage;
-      setCurrentMovies(movies.slice(itemOffset, endOffset));
-      setPageCount(Math.ceil(movies.length / itemsPerPage));
+      setCurrentMovies(moviesToPaginate.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(moviesToPaginate.length / itemsPerPage));
     }
   }, [itemOffset, itemsPerPage]);
 
@@ -48,7 +95,7 @@ const Featured: React.FC = () => {
       <h3>Destaques</h3>
       <div className="categoryNavigation">
         {categories.map(category=> (
-          <span key={category}>{category}</span>
+          <span key={category.id} onClick={(e)=>handleCategoryclick(e, category.id)}>{category.name}</span>
         ))}
       </div>
       <div className="cards">
@@ -57,7 +104,7 @@ const Featured: React.FC = () => {
       <ReactPaginate
         breakLabel="..."
         nextLabel=" >"
-        onPageChange={handlePageClick}
+        onPageChange={handlePaginationClick}
         pageRangeDisplayed={3}
         pageCount={pageCount}
         previousLabel="< "

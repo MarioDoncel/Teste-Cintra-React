@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { TMovieDetails } from '.';
 
 export const MovieDetailsContainer = styled.div`
   padding: 1rem 0;
@@ -8,6 +9,21 @@ export const MovieDetailsContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 2rem;
+  position: relative;
+  &::after{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    background-image:url(${(props:TMovieDetails)=> `https://image.tmdb.org/t/p/original/${props.bgURL}`});
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .image{
     width: clamp(100px,20%,440px );
     img{
@@ -32,7 +48,7 @@ export const MovieDetailsContainer = styled.div`
       color: ${({theme})=> theme.color.yellow};
     }
     small{
-      color: ${({theme})=> theme.color.blue};
+      color: ${({theme})=> theme.color.red};
       opacity: 0.8;
     }
     .overview{

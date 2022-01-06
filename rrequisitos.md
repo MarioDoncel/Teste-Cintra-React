@@ -12,11 +12,14 @@ KEY - fe65f8e840e15d06c5c00bf13084da74
 Stack 
 
 - Styled components
-      - Redux Thunk ou SAGA + TKT
+      - Redux Thunk ou SAGA 
+- Redux TKT
 - Axios 
 - React Router 
 - Typescript 
       - React Icons 
       - Authenticação JWT
       - Login Social com Google
+      - Colocar titulo do filme no Swiper
+- Categorias
       
