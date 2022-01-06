@@ -6,7 +6,8 @@ import {
   } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-  import {Home, Page2} from '../pages/index';
+import {Home, About, MovieDetails } from '../pages/index';
+
 
 
   export const Router = ()=>{
@@ -15,10 +16,10 @@ import Header from "../components/Header";
         <Header/>
           <Routes>
             <Route path="/" element={< Home />}/>
-            <Route path="/about" element={<Page2 />}/>
-            <Route path="/movies/:id" element={<Page2 />}/>
-            <Route path="/signin" element={<Page2 />}/>
-            <Route path="/login" element={<Page2 />}/>
+            <Route path="/about" element={<About />}/>
+            <Route path="/movies/:id" element={<MovieDetails />}/>
+            <Route path="/signin" element={<About />}/>
+            <Route path="/login" element={<About />}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

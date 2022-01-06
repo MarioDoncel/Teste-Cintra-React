@@ -1,19 +1,33 @@
 import React from 'react';
+import { formatDate } from '../../utils/formatDate';
 
 import { CardContainer } from './styles';
 
-const Card: React.FC = () => {
-  const img = 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
+interface ICard {
+  title: string
+  release_date: string
+  overview: string
+  poster_path: string
+  id: number
+  onclick:(id:number)=>void
+}
+
+
+
+const Card = ( {title, release_date, overview, poster_path, id, onclick}:ICard ) => {
 
   return (
-    <CardContainer className='flex-center'>
-      <div className="img">
-        <img src={img} alt="img" />
+    <CardContainer className='flex-center' onClick={()=>onclick(id)}>
+      <div className="header flex-center">
+        <div className="img">
+          <img src={`https://image.tmdb.org/t/p/w185${poster_path}`} alt="img" />
+        </div>
+        <h4>{title}</h4>
       </div>
-      <h4>Homem-Aranha: Sem Volta Para Casa</h4>
-      <p className='releaseDate'>Lançamento - <span className='released'>15/12/2021</span></p>
+      
+      <p className='releaseDate'>Lançamento - <span>{formatDate(release_date)}</span></p>
       <p className='resume'>
-        Peter Parker é desmascarado e não consegue mais separar sua vida normal dos grandes riscos de ser um super-herói. Quando ele pede ajuda ao Doutor Estranho, os riscos se tornam ainda mais perigosos, e o forçam 
+        {overview}
       </p>
     </CardContainer>
   );

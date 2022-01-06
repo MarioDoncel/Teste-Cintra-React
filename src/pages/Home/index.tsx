@@ -1,27 +1,41 @@
 
-import { useContext } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Featured from '../../components/Featured';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
 import ImageSlider from '../../components/ImageSlider';
-import NewContext from '../../providers/NewContextProvider';
+import Loading from '../../components/Loading';
+import { RootState } from '../../store';
+import { getPlayingMovies } from '../../store/movies.store';
+// import NewContext from '../../providers/NewContextProvider';
 import { HomeContainer } from './style';
 
 export const Home: React.FC = () => {
-  const {user,setUser} = useContext(NewContext)
+  const movies = useSelector((state:RootState)=> state.playingMovies.movies)
+  const dispatch = useDispatch()
+  // const { user, setUser } = useContext(NewContext)
 
-  const handleContext = () => {
-    const newUser = {example: 'Mario'}
-    setUser(newUser)
-  }
- 
+
+  // const handleContext = () => {
+  //   const newUser = { example: 'Mario' }
+  //   setUser(newUser)
+  // }
+  useEffect(()=>{
+    if(movies.length === 0)
+    dispatch(getPlayingMovies())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
+
   return (
-    <HomeContainer>
-      <ImageSlider/>  
-      <Featured/>
+    <HomeContainer className={movies.length === 0? 'loading' : ''}>
+      {movies.length === 0 ? <Loading /> : (
+        <>
+          <ImageSlider />
+          <Featured />
+        </>
+      )}
+
     </HomeContainer>
-
-
   );
 }
 

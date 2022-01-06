@@ -1,5 +1,7 @@
+import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import  { NewContextProvider } from './providers/NewContextProvider';
+import store from './store';
+// import  { NewContextProvider } from './providers/NewContextProvider';
 import Router from './routes';
 import Theme from './styles/theme'
 
@@ -7,9 +9,12 @@ import Theme from './styles/theme'
 function App() {
   return (
       <ThemeProvider theme={Theme}>
-        <NewContextProvider>
+        {/* <NewContextProvider> */}
+        <Provider store={store}>
+
           <Router />
-        </NewContextProvider>
+        </Provider>
+        {/* </NewContextProvider> */}
       </ThemeProvider>
   );
 }

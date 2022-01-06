@@ -15,13 +15,15 @@ import 'swiper/css'
 // modules styles
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 SwiperCore.use([Pagination, EffectCoverflow,Navigation]);
 
 const ImageSlider: React.FC = () => {
-
-  const photo1 = 'https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bW92aWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'
-  const photos = [photo1,photo1,photo1,photo1,photo1]
+  const movies = useSelector((state:RootState)=> state.playingMovies.movies)
+  const baseImageUrl = 'https://image.tmdb.org/t/p/original'
+  
   
      return (
         <ImageSliderContainer>
@@ -31,15 +33,14 @@ const ImageSlider: React.FC = () => {
             centeredSlides={true}
             navigation
             pagination={{ clickable: true }}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
-            
+            // onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
             loop={true}
-            
+            autoplay={true}
             
           >
-            {photos.map(img=>(
-              <SwiperSlide key={img}><img src={img} alt="img" /></SwiperSlide>
+            {movies.map(movie=>(
+              <SwiperSlide key={movie.id}><img src={`${baseImageUrl}${movie.backdrop_path}`} alt="img" /></SwiperSlide>
             ))}
           </Swiper>
        </ImageSliderContainer>

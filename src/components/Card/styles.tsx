@@ -1,18 +1,26 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-padding: 0.5rem 0;
+  cursor: pointer;
+  padding: 0.5rem 0;
   background-color: #FFF;
   border-radius: 10px;
-  width: 18rem;
-  height: 24rem;
+  width: 15rem;
+  height: 22rem;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 0.5rem;
   color: ${({theme})=>theme.color.black};
   font-size: 0.9rem;
 
+  .header{
+    flex-direction: column;
+    max-width: 90%;
+    height: 270px;
+  }
+
   .img{
-    width: 10rem;
+    width: 8rem;
     img{
       width: 100%;
     }
@@ -23,20 +31,20 @@ padding: 0.5rem 0;
   }
   .releaseDate{
     max-width: 80%;
+    background-color: ${({theme})=>theme.color.black};
+    color: #FFF;
+    padding: 4px 8px;
+    border-radius: 10px;
       span{
         font-weight: bold;
-        &.released{
-          color:${({theme})=>theme.color.green};
-        }
-        &.notReleased{
-          color:${({theme})=>theme.color.red};
-        }
+        color: ${({theme})=>theme.color.yellow};
       }
   }
   .resume{
+    font-size: 0.8em;
     width: 90%;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
