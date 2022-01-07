@@ -7,6 +7,7 @@ import Loading from '../../components/Loading';
 import Categories from '../../contextProviders/CategoriesProvider';
 import { getGenres } from '../../services/resources/genres';
 import { RootState } from '../../store';
+import { getMoviesRequest } from '../../store-saga/ducks/movies/actions';
 import { getPlayingMovies } from '../../store/movies.store';
 
 import { HomeContainer } from './style';
@@ -26,8 +27,7 @@ export const Home: React.FC = () => {
 
   useEffect(()=>{
     if(movies.length === 0)
-    //set timeout to show loading effect
-    setTimeout(()=>dispatch(getPlayingMovies()),1000)
+    setTimeout(()=>dispatch(getMoviesRequest()),1000)
     if(categories.length === 0)handleContext()
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

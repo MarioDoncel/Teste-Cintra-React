@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
+import storeSaga from './store-saga';
 import  { CategoriesProvider } from './contextProviders/CategoriesProvider';
 import Router from './routes';
 import Theme from './styles/theme'
@@ -9,7 +10,7 @@ import Theme from './styles/theme'
 function App() {
   return (
       <ThemeProvider theme={Theme}>
-        <Provider store={store}>
+        <Provider store={storeSaga}>
         <CategoriesProvider>
 
           <Router />
