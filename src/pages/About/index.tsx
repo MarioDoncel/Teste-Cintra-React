@@ -17,7 +17,7 @@ export const About = () => {
           Tecnologias utilizadas: ReactJS, ContextAPI,  Redux, Redux Toolkit, Styled Components, React Router V6, Axios, Typescript.
         </p><br />
         <p>
-          Features: slider de imagens, destaque da pagina atual,paginação , filtro de filmes por categorias(uma ou varias)
+          Features: slider de imagens, destaque da pagina atual,paginação , filtro de filmes por categorias(uma ou varias), mostrar esconder password,
         </p><br />
         <p>
           {'Espero que gostem :)'}

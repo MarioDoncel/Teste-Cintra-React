@@ -19,9 +19,15 @@ Stack
 - Axios 
 - React Router 
 - Typescript 
-      - React Icons 
+- React Icons 
       - Authenticação JWT
+      - Validação de JWT
       - Login Social com Google
 - Colocar titulo do filme no Swiper
 - Destaque da Pagina atual
       
+
+Back
+ - rotas criar usuario, login, 
+ - banco de dados : Postgre + typeorm? // mongodb?
+ - Criar e enviar JWT

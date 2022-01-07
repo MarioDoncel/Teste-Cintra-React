@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import { createSlice, PayloadAction,createAsyncThunk } from '@reduxjs/toolkit'
-import { AppDispatch, AppThunk } from '.'
+import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
 import { getCurrentPlayingMovies, IMovie } from '../services/resources/movies'
 
 export const getPlayingMovies = createAsyncThunk(
@@ -44,12 +43,6 @@ export default playingMoviesSlice.reducer
 
 
 
-// export function asyncPopulatePlayingMovies():AppThunk{
-//   return async function dispatch(dispatch:AppDispatch) {
-//     const movies:IMovie[] = await getCurrentPlayingMovies()
-//     if(movies) dispatch(populatePlayingMovies(movies))
-//   }
-// }
 
 
 
