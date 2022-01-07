@@ -13,7 +13,7 @@ https://api.themoviedb.org/3/genre/movie/list/?api_key=fe65f8e840e15d06c5c00bf13
 Stack 
 
 - Styled components
-      - Redux Thunk ou SAGA 
+- Redux SAGA (na branch redux-saga)
 - Redux TKT para movies
 - useContext() para categories
 - Axios 

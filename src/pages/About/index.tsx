@@ -14,7 +14,7 @@ export const About = () => {
         <p>Teste realizado conforme requisitos passados em consultoria da DevFast no dia 04/01/2022. Layout criado no FIGMA (https://www.figma.com/file/o2t0P3q8aV6zHVEqnP7U1R/Untitled?node-id=0%3A1) com base na aplicação apresentada como exemplo. 
         </p><br />
         <p>
-          Tecnologias utilizadas: ReactJS, ContextAPI,  Redux, Redux Toolkit, Styled Components, React Router V6, Axios, Typescript.
+          Tecnologias utilizadas: ReactJS, ContextAPI,  Redux, Redux Toolkit, Redux Saga(na branch redux-saga) Styled Components, React Router V6, Axios, Typescript.
         </p><br />
         <p>
           Features: slider de imagens, destaque da pagina atual,paginação , filtro de filmes por categorias(uma ou varias), mostrar esconder password,
