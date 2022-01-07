@@ -26,11 +26,11 @@ const playingMoviesSlice = createSlice({
   extraReducers:(builder)=>{
     builder.addCase(getPlayingMovies.pending, (state, action) =>{
       state.status = "loading"
-    }),
+    })
     builder.addCase(getPlayingMovies.fulfilled, (state, action) =>{
       state.status = "success";
       state.movies = action.payload;
-    }),
+    })
     builder.addCase(getPlayingMovies.rejected, (state, action) =>{
       state.status = "failed"
     })
