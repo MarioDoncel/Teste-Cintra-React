@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Card from '../Card';
 // import data from '../../MOCK.DATA/data.json'
 
@@ -10,37 +10,10 @@ import { IMovie } from '../../services/resources/movies';
 
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
-
-const categories = [
-  {
-    name:'Ação',
-    id:28
-  },
-  {
-    name:'Aventura',
-    id:12
-  },
-  {
-    name:'Animação',
-    id:16
-  },
-  {
-    name:'Comédia',
-    id:35
-  },
-  {
-    name:'Crime',
-    id:80
-  },
-  {
-    name:'Documentário',
-    id:99
-  }
-]
-
-
+import Categories from '../../contextProviders/CategoriesProvider';
 
 const Featured: React.FC = () => {
+  const { categories } = useContext(Categories)
   const movies = useSelector((state:RootState)=> state.playingMovies.movies)
   const navigate = useNavigate()
   const itemsPerPage = 4

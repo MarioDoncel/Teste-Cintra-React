@@ -11,13 +11,13 @@ export const About = () => {
         <img src="https://images.unsplash.com/photo-1608170825938-a8ea0305d46c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2luZW1hfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Image About" />
       </div>
       <div className="about flex-center">
-        <p>O Teste foi realizado com o desenvolvimento de um layout do zero contendo todas as funcionalidades propostas no teste.
+        <p>Teste realizado conforme requisitos passados em consultoria da DevFast no dia 04/01/2022. Layout criado no FIGMA (https://www.figma.com/file/o2t0P3q8aV6zHVEqnP7U1R/Untitled?node-id=0%3A1) com base na aplicação apresentada como exemplo. 
         </p><br />
         <p>
-          As tecnologias usadas foram: ReactJS, Redux, Redux-Saga, Axios, Styled-Components e CSS3 (usado em animações de loading).
+          Tecnologias utilizadas: ReactJS, ContextAPI,  Redux, Redux Toolkit, Styled Components, React Router V6, Axios, Typescript.
         </p><br />
         <p>
-          O código fonte desse projeto está no repositório:Teste Dev Reactdo GitHub.
+          Features: slider de imagens, destaque da pagina atual,paginação , filtro de filmes por categorias(uma ou varias)
         </p><br />
         <p>
           {'Espero que gostem :)'}

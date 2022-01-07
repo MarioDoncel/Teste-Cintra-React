@@ -17,4 +17,22 @@ export const FooterContainer = styled.footer`
   .developedBy{
     gap: 0.5rem;
   }
+
+  @media(max-width:600px){
+    .container{
+      font-size: 1.2rem;
+      gap: 0.5rem;
+    }
+    .rights{
+      text-align:center;
+    }
+    .developedBy{
+      flex-direction: column;
+      text-align: center;
+      >div{
+        width: 40px;
+        height: 36px;
+      }
+    }
+}
 `;

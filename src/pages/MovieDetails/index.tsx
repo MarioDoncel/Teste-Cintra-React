@@ -41,7 +41,7 @@ export const MovieDetails = ({bgURL}:TMovieDetails) => {
       <div className="about flex-center">
         <h1>{currentMovie.title}</h1>
         <p className='releaseDate'>Lançamento: <span>{formatDate(currentMovie.release_date) }</span></p>
-        <p className='rate'> Avaliação: <span>{`${currentMovie.vote_average}/10`}</span><small>{`(${currentMovie.vote_count} votos)`}</small></p>
+        <p className='rate'> Avaliação: <span>{`${currentMovie.vote_average}/10`}</span><small>{` (${currentMovie.vote_count} votos)`}</small></p>
         <p> Sinopse:</p>
         <p className='overview'>{currentMovie.overview}</p>
       </div>

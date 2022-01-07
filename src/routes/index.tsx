@@ -7,6 +7,8 @@ import {
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import {Home, About, MovieDetails } from '../pages/index';
+import SignIn from "../pages/SignIn";
+import SignUp from "../pages/SignUp";
 
 
 
@@ -18,8 +20,8 @@ import {Home, About, MovieDetails } from '../pages/index';
             <Route path="/" element={< Home />}/>
             <Route path="/about" element={<About />}/>
             <Route path="/movies/:id" element={<MovieDetails />}/>
-            <Route path="/signin" element={<About />}/>
-            <Route path="/login" element={<About />}/>
+            <Route path="/signin" element={<SignIn />}/>
+            <Route path="/signup" element={<SignUp />}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

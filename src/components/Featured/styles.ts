@@ -8,7 +8,9 @@ export const FeaturedContainer = styled.div`
     .categoryNavigation{
       width: 90%;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
       span{
         cursor: pointer;
         transition: 400ms;

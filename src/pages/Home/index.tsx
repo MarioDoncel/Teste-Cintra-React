@@ -1,39 +1,47 @@
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Featured from '../../components/Featured';
 import ImageSlider from '../../components/ImageSlider';
 import Loading from '../../components/Loading';
+import Categories from '../../contextProviders/CategoriesProvider';
+import { getGenres } from '../../services/resources/genres';
 import { RootState } from '../../store';
 import { getPlayingMovies } from '../../store/movies.store';
-// import NewContext from '../../providers/NewContextProvider';
+
 import { HomeContainer } from './style';
 
 export const Home: React.FC = () => {
   const movies = useSelector((state:RootState)=> state.playingMovies.movies)
   const dispatch = useDispatch()
-  // const { user, setUser } = useContext(NewContext)
+  const { categories, setCategories } = useContext(Categories)
 
 
-  // const handleContext = () => {
-  //   const newUser = { example: 'Mario' }
-  //   setUser(newUser)
-  // }
+  const handleContext = async () => {
+    const categoriesData = await getGenres()
+    setCategories(categoriesData)
+  }
+  const dataHasBeenImported = () =>  (movies.length === 0 || categories.length === 0 ) ? false : true
+
+
   useEffect(()=>{
     if(movies.length === 0)
-    dispatch(getPlayingMovies())
+    //set timeout to show loading effect
+    setTimeout(()=>dispatch(getPlayingMovies()),1000)
+    if(categories.length === 0)handleContext()
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
-
+  
 
   return (
     <HomeContainer className={movies.length === 0? 'loading' : ''}>
-      {movies.length === 0 ? <Loading /> : (
+      {dataHasBeenImported() ?  (
         <>
           <ImageSlider />
           <Featured />
         </>
-      )}
+      ): <Loading /> }
 
     </HomeContainer>
   );

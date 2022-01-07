@@ -7,19 +7,21 @@
 
 API  -  https://developers.themoviedb.org/3/getting-started/introduction
 KEY - fe65f8e840e15d06c5c00bf13084da74
-
+https://api.themoviedb.org/3/genre/movie/list?api_key=<<api_key>>&language=en-US
+https://api.themoviedb.org/3/genre/movie/list/?api_key=fe65f8e840e15d06c5c00bf13084da74&language=pt-BR
 
 Stack 
 
 - Styled components
       - Redux Thunk ou SAGA 
-- Redux TKT
+- Redux TKT para movies
+- useContext() para categories
 - Axios 
 - React Router 
 - Typescript 
       - React Icons 
       - Authenticação JWT
       - Login Social com Google
-      - Colocar titulo do filme no Swiper
-- Categorias
+- Colocar titulo do filme no Swiper
+- Destaque da Pagina atual
       

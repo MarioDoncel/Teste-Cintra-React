@@ -1,3 +1,5 @@
 export * from './Home'
 export * from './About'
 export * from './MovieDetails'
+export * from './SignIn'
+export * from './SignUp'
