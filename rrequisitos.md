@@ -22,6 +22,8 @@ Stack
 - React Icons 
       - Authenticação JWT
       - Validação de JWT
+      - Refresh Token
+- Criar usuario API
       - Login Social com Google
 - Colocar titulo do filme no Swiper
 - Destaque da Pagina atual
