@@ -9,12 +9,12 @@ interface IInput extends InputHTMLAttributes<HTMLInputElement>{
   label?:string
 }
 
-const Input= ({type, name, placeholder, Icon, showHide, label}:IInput) => {
+const Input= ({type, name, placeholder, Icon, showHide, label, onChange}:IInput) => {
   return (
     <InputContainer>
       <div className="field">
         <label htmlFor={name}>{label? label:name}</label>
-        <input type={type} name={name} id={name} placeholder={placeholder} />
+        <input type={type} name={name} id={name} placeholder={placeholder} onChange={onChange} />
       </div>
       <div className="icons">
         {name === 'password'? (type === 'password'? <BiHide className='showHide' onClick={showHide}/>: <BiShow className='showHide' onClick={showHide}/> ): ''}

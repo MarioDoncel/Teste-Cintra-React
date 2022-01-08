@@ -3,20 +3,28 @@ import axios from "axios";
 const api = axios.create({
   baseURL:`${process.env.REACT_APP_BASE_URL}`
 })
-export const apiGenres = axios.create({
+const apiGenres = axios.create({
   baseURL:`${process.env.REACT_APP_BASE_GENRES_URL}`
 })
 
-// api.defaults.headers.common = {
+const apiUsers = axios.create({
+  baseURL:`${process.env.REACT_APP_BASE_USERS_URL}`
+})
+
+// apiUsers.defaults.headers.common = {
 //   "Content-Type": "application/x-www-form-urlencoded"
 // }
 
-// api.interceptors.request.use(config => {
-//   const token = localStorage.getItem('@Inter:Token') || ''
+// apiUsers.interceptors.request.use(config => {
+//   const JWT = localStorage.getItem('@Devfast:JWT') || ''
 //   config.headers = {
-//       'Authorization' : `Bearer ${token}`
+//       'Authorization' : `Bearer ${JWT}`
 //   }
 //   return config
 // })
+
+
+
+export {apiUsers, apiGenres}
 
 export default api;
