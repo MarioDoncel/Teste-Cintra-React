@@ -27,6 +27,7 @@ Stack
       - Login Social com Google
 - Colocar titulo do filme no Swiper
 - Destaque da Pagina atual
+- Alerts 
       
 
 Back
