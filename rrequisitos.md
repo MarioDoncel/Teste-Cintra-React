@@ -28,6 +28,7 @@ Stack
       
 
 Back
- - rotas criar usuario, login, 
- - banco de dados : Postgre + typeorm? // mongodb?
- - Criar e enviar JWT
+- rotas criar usuario, login, 
+- Database com MongoDB
+- Criar e enviar JWT
+- Tratamento de erros

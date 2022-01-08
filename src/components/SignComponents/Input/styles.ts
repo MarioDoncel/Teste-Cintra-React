@@ -9,14 +9,17 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   transition: 400ms ease-in-out;
-  :focus-within{
+  :focus-within, :focus{
     background: #75949A;
     box-shadow: inset 0px 0px 0px 2px ${({theme})=>theme.color.yellow};
-    
+    .field input{
+      height: 100% !important;
+    }
   }
   .field{
     display: flex;
     flex-direction: column;
+    transition: 400ms ease-in-out;
     label{
       font-size: 1rem;
       color: #e5e5e595;
@@ -28,6 +31,10 @@ export const InputContainer = styled.div`
       background: transparent;
       font-size: 1.5rem;
       color: #fff;
+      transition: 400ms ease-in-out;
+      :placeholder-shown{
+        height: 0;
+      }
       ::placeholder{
         color: rgba(255,255,255,0.4);
       }
