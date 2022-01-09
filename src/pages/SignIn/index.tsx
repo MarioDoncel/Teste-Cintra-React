@@ -3,7 +3,7 @@ import { MdOutlineMail } from 'react-icons/md';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import AlertMessage from '../../components/AlertMessage';
-
+import { apiUsers } from '../../services/api';
 import Input from '../../components/SignComponents/Input';
 import SignHeader from '../../components/SignComponents/SignHeader';
 
@@ -34,14 +34,18 @@ const SignIn: React.FC = () => {
   const handleClickLogIn =async ()=>{
     if( !email || !password)  return popAlert('error', 'Preencha todos os campos.')
     
-    // try {
-    //   const {data:JWT} = await apiUsers.post('/create', {username, email, password})
-    //   localStorage.setItem('@Devfast:JWT', JSON.stringify(JWT) )
-    //   navigate('/')
-    // } catch (error:any) {
-    //   alert(error.response.data.message)
-    // }
+    try {
+      const {data:JWT} = await apiUsers.get('/login', {auth:{
+        username: email,
+        password
+      }})
+      localStorage.setItem('@Devfast:JWT', JSON.stringify(JWT) )
+      navigate('/')
+    } catch (error:any) {
+      alert(error.response.data.message)
+    }
   }
+
 
   return (
     <SignInContainer className='flex-center'>

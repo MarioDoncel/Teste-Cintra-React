@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { FooterContainer } from './styles';
-import logo from '../../assets/movie-icon.png'
 import Logo from '../Logo';
 
 const Footer: React.FC = () => {
