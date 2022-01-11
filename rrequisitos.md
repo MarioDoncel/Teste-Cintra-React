@@ -32,7 +32,7 @@ Stack
 
 - validar expiração do token 
 
-      - testar geração do refresh token
+- testar geração do refresh token
       
 
 Back

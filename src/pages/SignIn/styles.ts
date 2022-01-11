@@ -10,7 +10,12 @@ export const SignInContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
 
-  button{
+  form{
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  input[type=submit]{
     font-size: 1.5rem;
     padding:1rem 4rem;
     border-radius: 50px;

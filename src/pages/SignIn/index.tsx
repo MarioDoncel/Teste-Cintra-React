@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, {FormEvent, useState } from 'react';
 import { MdOutlineMail } from 'react-icons/md';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
@@ -13,8 +13,6 @@ import { SignInContainer } from './styles';
 const SignIn: React.FC = () => {
   const navigate = useNavigate()
   const [passwordOrText,setPasswordOrText] = useState('password')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [alertMessage,setAlertMessage] = useState({type:'', message:''})
   const [showAlert,setShowAlert] = useState(false)
   
@@ -28,11 +26,12 @@ const SignIn: React.FC = () => {
     if(passwordOrText === 'text') return setPasswordOrText('password')
     setPasswordOrText('text')
   }
-  const handleOnChangeInput = (event:ChangeEvent, setData:React.Dispatch<React.SetStateAction<string>>)=>{
-    const input = event.target as HTMLInputElement
-    setData(input.value)
-  }
-  const handleClickLogIn =async ()=>{
+ 
+  const handleClickLogIn =async (e:FormEvent)=>{
+    e.preventDefault()
+    const form = e.target as HTMLFormElement
+    const email = form.email.value
+    const password = form.password.value
     if( !email || !password)  return popAlert('error', 'Preencha todos os campos.')
     
     try {
@@ -48,17 +47,16 @@ const SignIn: React.FC = () => {
     }
   }
 
-
   return (
     <SignInContainer className='flex-center'>
       {showAlert && <AlertMessage type={alertMessage.type} alertMessage={alertMessage.message}/> }
       <SignHeader text={'Bem vindo de volta'} subText={'Não possui conta?'} action={'Registrar'} linkTo='/signup'/>
-      
-      <Input type='email' name='email' placeholder='user@host.com' Icon={MdOutlineMail} onChange={(event)=>handleOnChangeInput(event, setEmail)}/>
-      <Input type={passwordOrText} name='password' placeholder='*********' Icon={RiLockPasswordLine} showHide={showHidePassword} onChange={(event)=>handleOnChangeInput(event, setPassword)}/> 
+      <form action="" className='flex-center' onSubmit={(e)=>handleClickLogIn(e)}>
+        <Input type='email' name='email' placeholder='user@host.com' Icon={MdOutlineMail} />
+        <Input type={passwordOrText} name='password' placeholder='*********' Icon={RiLockPasswordLine} showHide={showHidePassword} /> 
 
-      <button onClick={handleClickLogIn}>Entrar</button>
-      
+        <input type='submit' value={'Entrar'}/>
+      </form>
     </SignInContainer>
   );
 }
