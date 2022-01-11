@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, {FormEvent, useState } from 'react';
 import { MdOutlineMail } from 'react-icons/md';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { HiOutlineUserCircle } from 'react-icons/hi';
@@ -12,9 +12,6 @@ import AlertMessage from '../../components/AlertMessage';
 
 const SignUp: React.FC = () => {
   const navigate = useNavigate()
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [passwordOrText,setPasswordOrText] = useState('password')
   const [alertMessage,setAlertMessage] = useState({type:'', message:''})
   const [showAlert,setShowAlert] = useState(false)
@@ -30,12 +27,17 @@ const SignUp: React.FC = () => {
     setPasswordOrText('text')
   }
 
-  const handleOnChangeInput = (event:ChangeEvent, setData:React.Dispatch<React.SetStateAction<string>>)=>{
-    const input = event.target as HTMLInputElement
-    setData(input.value)
-  }
+  // const handleOnChangeInput = (event:ChangeEvent, setData:React.Dispatch<React.SetStateAction<string>>)=>{
+  //   const input = event.target as HTMLInputElement
+  //   setData(input.value)
+  // }
   
-  const handleClickCreateAccount =async ()=>{
+  const handleSubmitCreateAccount =async (e:FormEvent)=>{
+    e.preventDefault()
+    const form = e.target as HTMLFormElement
+    const email = form.email.value
+    const username = form.username.value
+    const password = form.password.value
     if(!username || !email || !password) return popAlert('error', 'Todos os campos devem ser preenchidos')
     if(password.length < 4) return popAlert('error', 'Senha deve conter no minimo 4 caracteres')
 
@@ -52,15 +54,15 @@ const SignUp: React.FC = () => {
     <SignUpContainer className='flex-center'>
       {showAlert && <AlertMessage type={alertMessage.type} alertMessage={alertMessage.message}/> }
       <SignHeader text={'Crie sua conta'} subText={'Já possui conta?'} action={'Entrar'} linkTo='/signin'/>
-      
-      <Input type='text' label='Nome Completo' name='name' placeholder='Nome Sobrenome' Icon={HiOutlineUserCircle} onChange={(event)=>handleOnChangeInput(event,setUsername)}/>
+      <form className='flex-center' action='' onSubmit={handleSubmitCreateAccount}>
+        <Input type='text' label='Nome Completo' name='username' placeholder='Nome Sobrenome' Icon={HiOutlineUserCircle} />
 
-      <Input type='email' name='email' placeholder='user@host.com' Icon={MdOutlineMail} onChange={(event)=>handleOnChangeInput(event,setEmail)}/>
-      
-      <Input type={passwordOrText} name='Senha' placeholder='*********' Icon={RiLockPasswordLine} showHide={showHidePassword} onChange={(event)=>handleOnChangeInput(event,setPassword)}/> 
+        <Input type='email' name='email' placeholder='user@host.com' Icon={MdOutlineMail} />
+        
+        <Input type={passwordOrText} name='password' placeholder='*********' Icon={RiLockPasswordLine} showHide={showHidePassword} /> 
 
-      <button onClick={handleClickCreateAccount}>Criar conta</button>
-      
+        <input type='submit' value='Criar conta'/>
+      </form>
     </SignUpContainer>
   );
 }

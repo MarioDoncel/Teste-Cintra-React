@@ -11,7 +11,12 @@ export const SignUpContainer = styled.div`
   gap: 1rem;
   padding: 1rem 0;
 
-  button{
+  form{
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  input[type=submit]{
     font-size: 1.5rem;
     padding:1rem 4rem;
     border-radius: 50px;

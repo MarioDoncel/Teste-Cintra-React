@@ -14,7 +14,7 @@ const Input= ({type, name, placeholder, Icon, showHide, label, onChange}:IInput)
     <InputContainer>
       <div className="field">
         <label htmlFor={name}>{label? label:name}</label>
-        <input type={type} name={name} id={name} placeholder={placeholder} onChange={onChange} />
+        <input type={type} name={name} id={name} placeholder={placeholder} onChange={onChange} autoComplete='off' />
       </div>
       <div className="icons">
         {name === 'password'? (type === 'password'? <BiHide className='showHide' onClick={showHide}/>: <BiShow className='showHide' onClick={showHide}/> ): ''}

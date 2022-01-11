@@ -27,7 +27,7 @@ const SignIn: React.FC = () => {
     setPasswordOrText('text')
   }
  
-  const handleClickLogIn =async (e:FormEvent)=>{
+  const handleSubmitLogIn =async (e:FormEvent)=>{
     e.preventDefault()
     const form = e.target as HTMLFormElement
     const email = form.email.value
@@ -51,7 +51,7 @@ const SignIn: React.FC = () => {
     <SignInContainer className='flex-center'>
       {showAlert && <AlertMessage type={alertMessage.type} alertMessage={alertMessage.message}/> }
       <SignHeader text={'Bem vindo de volta'} subText={'Não possui conta?'} action={'Registrar'} linkTo='/signup'/>
-      <form action="" className='flex-center' onSubmit={(e)=>handleClickLogIn(e)}>
+      <form action="" className='flex-center' onSubmit={(e)=>handleSubmitLogIn(e)}>
         <Input type='email' name='email' placeholder='user@host.com' Icon={MdOutlineMail} />
         <Input type={passwordOrText} name='password' placeholder='*********' Icon={RiLockPasswordLine} showHide={showHidePassword} /> 
 
