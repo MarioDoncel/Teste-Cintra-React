@@ -1,25 +1,19 @@
 import React from 'react';
-
 import { ImageSliderContainer } from './styles';
-
-// Direct React component imports
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, EffectCoverflow } from "swiper";
-
-
-import 'swiper/css/bundle'
-
-// swiper core styles
-import 'swiper/css'
-
-// modules styles
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { Link } from 'react-router-dom';
+// Direct React component imports
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, EffectCoverflow, Autoplay } from "swiper";
+import 'swiper/css/bundle'
+// swiper core styles
+import 'swiper/css'
+// modules styles
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
-SwiperCore.use([Pagination, EffectCoverflow,Navigation]);
+SwiperCore.use([Pagination, EffectCoverflow,Navigation, Autoplay]);
 
 const ImageSlider: React.FC = () => {
   const movies = useSelector((state:RootState)=> state.playingMovies.movies)
