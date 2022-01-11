@@ -26,6 +26,21 @@ export const NavLinksContainer = styled.div`
       text-shadow: 0px 0px 10px #FFFFFF;
     }
   }
+  .logout{
+    flex-direction: column;
+    color: white;
+    cursor: pointer;
+    transition: 400ms;
+      &:hover{
+        animation: 400ms ease vibrate ;
+      }
+  }
+  
+  @media(max-width:500px){
+    a:last-child span{
+      display: none;
+    }
+  }
 
   @keyframes vibrate {
     0%{

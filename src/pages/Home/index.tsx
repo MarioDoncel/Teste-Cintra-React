@@ -1,4 +1,3 @@
-
 import { useContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Featured from '../../components/Featured';
@@ -13,7 +12,7 @@ import { HomeContainer } from './style';
 
 export const Home: React.FC = () => {
   const movies = useSelector((state:RootState)=> state.playingMovies.movies)
-  const user = useSelector((state:RootState)=> state.currentUser.user)
+  
   const dispatch = useAppDispatch()
   const { categories, setCategories } = useContext(Categories)
 
@@ -26,7 +25,6 @@ export const Home: React.FC = () => {
 
 
   useEffect(()=>{
-    console.log(user)
     if(movies.length === 0)
     //set timeout to show loading effect
     setTimeout(()=>dispatch(getPlayingMovies()),1000)

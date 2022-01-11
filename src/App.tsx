@@ -11,7 +11,6 @@ function App() {
       <ThemeProvider theme={Theme}>
         <Provider store={store}>
         <CategoriesProvider>
-
           <Router />
         </CategoriesProvider>
         </Provider>

@@ -9,5 +9,14 @@ export const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
   }
+  .user{
+    color: ${({theme})=> theme.color.yellow};
+  }
   
+  @media(max-width:500px){
+    .user{
+      display: none;
+    }
+  }
+
 `;
