@@ -31,14 +31,19 @@ const Featured: React.FC = () => {
     const span = e.target as HTMLSpanElement
     span.classList.contains('selected') ? filter.splice(filter.indexOf(id),1) :filter.push(id)
     span.classList.toggle('selected')
-    let moviesFiltered = movies.filter(movie => {
+    let moviesFiltered = []
+
+    //Check filter
+    filter.length === 0? 
+    moviesFiltered = [...movies] : 
+    moviesFiltered = movies.filter(movie => {
       let match = false
       filter.forEach(categorie=> {
         if (movie.genre_ids.includes(categorie)) return match = true
       })
       return match
     })
-    if (moviesFiltered.length === 0 ) moviesFiltered = [...movies]
+    
     setfilteredMovies(moviesFiltered)
     setCurrentMovies(moviesFiltered.slice(0, itemsPerPage))
     setPageCount(Math.ceil(moviesFiltered.length / itemsPerPage));
@@ -52,7 +57,6 @@ const Featured: React.FC = () => {
     setItemOffset(newOffset);
   };
 
-  
 
   useEffect(() => {
     const moviesToPaginate = filteredMovies.length>0 ? filteredMovies : movies
@@ -60,7 +64,7 @@ const Featured: React.FC = () => {
       const endOffset = itemOffset + itemsPerPage;
       setCurrentMovies(moviesToPaginate.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(moviesToPaginate.length / itemsPerPage));
-    }
+    } 
   }, [itemOffset, itemsPerPage]);
 
   return (
@@ -71,18 +75,23 @@ const Featured: React.FC = () => {
           <span key={category.id} onClick={(e)=>handleCategoryclick(e, category.id)}>{category.name}</span>
         ))}
       </div>
-      <div className="cards">
-        {currentMovies.map(({title, release_date, overview, poster_path, id})=>(<Card title={title} release_date={release_date} overview={overview} poster_path={poster_path} id={id} key={id} onclick={(id:number)=>handleCardClick(id)}/>))}
-      </div>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=" >"
-        onPageChange={handlePaginationClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="< "
-        containerClassName='pagination'
-      />
+      {currentMovies.length > 0 ? (
+        <>
+          <div className="cards">
+            {currentMovies.map(({title, release_date, overview, poster_path, id})=>(<Card title={title} release_date={release_date} overview={overview} poster_path={poster_path} id={id} key={id} onclick={(id:number)=>handleCardClick(id)}/>))}
+          </div>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=" >"
+            onPageChange={handlePaginationClick}
+            pageRangeDisplayed={3}
+            pageCount={pageCount}
+            previousLabel="< "
+            containerClassName='pagination'
+          />
+      </>
+      ): (<h3 className='noMovies'>Nenhum filme encontrado</h3>)}
+      
     </FeaturedContainer>
     
   );

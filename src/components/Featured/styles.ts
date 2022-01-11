@@ -53,5 +53,8 @@ export const FeaturedContainer = styled.div`
         }
       }
     }
+    .noMovies{
+      color: white;
+    }
 
 `;
