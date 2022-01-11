@@ -21,22 +21,20 @@ Stack
 - Typescript 
 - React Icons 
 - Authenticação JWT
-- Refresh Token
 - Criar usuario API
       - Login Social com Google
 - Colocar titulo do filme no Swiper
 - Destaque da Pagina atual
 - Alerts 
 - rotas privadas
-      - Validação de email
-
-- validar expiração do token 
-
-- testar geração do refresh token
-      
+    
 
 Back
+- Refresh Token
+- validar expiração do token 
+- testar geração do refresh token
 - rotas criar usuario, login, 
 - Database com MongoDB
 - Criar e enviar JWT
 - Tratamento de erros
+- Cron job deletar tokens expirados
