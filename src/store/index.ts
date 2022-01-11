@@ -1,10 +1,12 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { RootStateOrAny, useDispatch } from "react-redux";
 import playingMoviesReducer from './movies.store'
+import userReducer from './user.store'
 
 const store = configureStore({
   reducer:{
-    playingMovies: playingMoviesReducer
+    playingMovies: playingMoviesReducer,
+    currentUser:userReducer
   }
 })
 

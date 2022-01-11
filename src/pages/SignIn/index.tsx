@@ -9,6 +9,7 @@ import SignHeader from '../../components/SignComponents/SignHeader';
 
 import { SignInContainer } from './styles';
 
+
 const SignIn: React.FC = () => {
   const navigate = useNavigate()
   const [passwordOrText,setPasswordOrText] = useState('password')
@@ -39,10 +40,11 @@ const SignIn: React.FC = () => {
         username: email,
         password
       }})
-      localStorage.setItem('@Devfast:JWT', JSON.stringify(JWT) )
+      localStorage.setItem('@Devfast:JWT', JSON.stringify(JWT) )     
       navigate('/')
     } catch (error:any) {
-      alert(error.response.data.message)
+      console.error(error)
+      popAlert('error', error.response.data.message)
     }
   }
 
@@ -50,7 +52,7 @@ const SignIn: React.FC = () => {
   return (
     <SignInContainer className='flex-center'>
       {showAlert && <AlertMessage type={alertMessage.type} alertMessage={alertMessage.message}/> }
-      <SignHeader text={'Bem vindo de volta'} subText={'Não possui conta?'} action={'Registrar'}/>
+      <SignHeader text={'Bem vindo de volta'} subText={'Não possui conta?'} action={'Registrar'} linkTo='/signup'/>
       
       <Input type='email' name='email' placeholder='user@host.com' Icon={MdOutlineMail} onChange={(event)=>handleOnChangeInput(event, setEmail)}/>
       <Input type={passwordOrText} name='password' placeholder='*********' Icon={RiLockPasswordLine} showHide={showHidePassword} onChange={(event)=>handleOnChangeInput(event, setPassword)}/> 

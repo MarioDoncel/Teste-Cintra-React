@@ -1,19 +1,20 @@
 
 import { useContext, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Featured from '../../components/Featured';
 import ImageSlider from '../../components/ImageSlider';
 import Loading from '../../components/Loading';
 import Categories from '../../contextProviders/CategoriesProvider';
 import { getGenres } from '../../services/resources/genres';
-import { RootState } from '../../store';
+import { RootState, useAppDispatch } from '../../store';
 import { getPlayingMovies } from '../../store/movies.store';
 
 import { HomeContainer } from './style';
 
 export const Home: React.FC = () => {
   const movies = useSelector((state:RootState)=> state.playingMovies.movies)
-  const dispatch = useDispatch()
+  const user = useSelector((state:RootState)=> state.currentUser.user)
+  const dispatch = useAppDispatch()
   const { categories, setCategories } = useContext(Categories)
 
 
@@ -25,6 +26,7 @@ export const Home: React.FC = () => {
 
 
   useEffect(()=>{
+    console.log(user)
     if(movies.length === 0)
     //set timeout to show loading effect
     setTimeout(()=>dispatch(getPlayingMovies()),1000)

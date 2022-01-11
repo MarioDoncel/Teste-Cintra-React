@@ -1,16 +1,9 @@
-import { useJwt } from "react-jwt";
+import { apiToken } from "../services/api"
 
-
-export const isAuth= () => {
-  const token = localStorage.getItem('@Devfast:JWT')
-  console.log(token)
-  if(token){
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const decoded = useJwt(token)
-    console.log(decoded)
-    return true
-  }
+export const isAuth= async () => {
+  const {data:JWT} = await apiToken.get('/validate')
+  console.log(JWT)
+  if(JWT)return true
   return false
 }
-
-  // if(typeof decoded !== 'object' || !decoded.sub) return
+  

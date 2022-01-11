@@ -51,7 +51,7 @@ const SignUp: React.FC = () => {
   return (
     <SignUpContainer className='flex-center'>
       {showAlert && <AlertMessage type={alertMessage.type} alertMessage={alertMessage.message}/> }
-      <SignHeader text={'Bem vindo de volta'} subText={'Não possui conta?'} action={'Registrar'}/>
+      <SignHeader text={'Crie sua conta'} subText={'Já possui conta?'} action={'Entrar'} linkTo='/signin'/>
       
       <Input type='text' label='Nome Completo' name='name' placeholder='Nome Sobrenome' Icon={HiOutlineUserCircle} onChange={(event)=>handleOnChangeInput(event,setUsername)}/>
 

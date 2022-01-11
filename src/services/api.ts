@@ -1,14 +1,19 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL:`${process.env.REACT_APP_BASE_URL}`
+  baseURL:`${process.env.REACT_APP_BASE_URL}`,
 })
 const apiGenres = axios.create({
   baseURL:`${process.env.REACT_APP_BASE_GENRES_URL}`
 })
 
 const apiUsers = axios.create({
-  baseURL:`${process.env.REACT_APP_BASE_USERS_URL}`
+  baseURL:`${process.env.REACT_APP_BASE_USERS_URL}`,
+  withCredentials: true
+})
+const apiToken = axios.create({
+  baseURL:`${process.env.REACT_APP_BASE_TOKEN_URL}`,
+  withCredentials: true
 })
 
 // apiUsers.defaults.headers.common = {
@@ -25,6 +30,6 @@ const apiUsers = axios.create({
 
 
 
-export {apiUsers, apiGenres}
+export {apiUsers, apiGenres, apiToken}
 
 export default api;

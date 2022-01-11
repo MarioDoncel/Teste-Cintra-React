@@ -20,8 +20,8 @@ Stack
 - React Router 
 - Typescript 
 - React Icons 
-      - Authenticação JWT
-      - Refresh Token
+- Authenticação JWT
+- Refresh Token
 - Criar usuario API
       - Login Social com Google
 - Colocar titulo do filme no Swiper
@@ -29,6 +29,10 @@ Stack
 - Alerts 
 - rotas privadas
       - Validação de email
+
+- validar expiração do token 
+
+      - testar geração do refresh token
       
 
 Back
