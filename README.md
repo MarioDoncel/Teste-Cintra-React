@@ -4,7 +4,7 @@
   <img src="src/assets/movie-icon.png" alt="Logo" width="300px">
 <br>
 
-Project developed as a challenge for a job interview.See About the Project for complete information. 
+Project developed as a challenge for a job interview. Read the section About the Project for complete information. 
   
   This is the FRONT-END.
   
