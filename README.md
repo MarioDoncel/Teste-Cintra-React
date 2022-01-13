@@ -107,7 +107,7 @@ The main requirements was to consume the API, show the movies in a list of cards
 
 ### Objective
 
-Project developed for educacional purposes.
+Project developed for a job interview.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Status
