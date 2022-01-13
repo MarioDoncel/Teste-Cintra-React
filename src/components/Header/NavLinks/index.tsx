@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import { SiWhatsapp } from "react-icons/si"
 import { NavLinksContainer } from './styles';
 import { MdOutlineLogout } from 'react-icons/md';
@@ -23,7 +23,7 @@ const NavLinks = ({user, onClick}:INavlinks) => {
                 <span>Logout</span>
               </div>: '' }
       
-      <Link to={'https://api.whatsapp.com/send/?phone=5519996129909'} className='flex-center'><SiWhatsapp/><span>Whatsapp</span>  </Link>
+      <a href={'https://api.whatsapp.com/send/?phone=5519996129909'} className='flex-center'><SiWhatsapp/><span>Whatsapp</span>  </a>
     </NavLinksContainer>
   );
 }
