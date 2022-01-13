@@ -20,13 +20,13 @@ Stack
 - React Router 
 - Typescript 
 - React Icons 
-- Authenticação JWT
 - Criar usuario API
       - Login Social com Google
 - Colocar titulo do filme no Swiper
 - Destaque da Pagina atual
 - Alerts 
 - rotas privadas
+- Authenticação JWT
     
 
 Back
