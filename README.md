@@ -54,9 +54,14 @@ Project developed as a challenge for a job interview.See About the Project for c
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 Application developed for an interview test. 
+
 The main requirements was to consume the API, show the movies in a list of cards with pagination, a image slider, filter then by categories, show the data of the movies individually on a page. For tecnologies was asked to use ReactJS,Styled-Components, Redux SAGA (i used Redux-Toolkit for production, but there is a SAGA implementation on branch redux-saga), Axios, React Router. 
+
   I accomplished the challenge early and went further than the requirements asked, creating some other features and an API for users register/login/logout and validation with JWT and Refresh Token strategie seted in cookies httpOnly. Also i used Typescript for Front and Back, at Backend i used NodeJs (Express) connected to Mongo DB Atlas Database. In Database there are a collection user and whitelist (stores the valid refresh tokens to allow more control on users permissions, whith it i can revogate the access easily).
+  
   At the end i added a cron-job to delete all expirated refresh tokens from database at 02:00AM everyday.
+  
+  Time of development: 7 days
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
