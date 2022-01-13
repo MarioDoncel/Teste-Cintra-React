@@ -169,7 +169,7 @@ Finished.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<img src="src/assets/readmeFiles/Costs.gif" alt="Costs gif" width="500px">
+<img src="src/assets/featuredmovies_GIF.gif" alt="Movies gif" width="500px">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
