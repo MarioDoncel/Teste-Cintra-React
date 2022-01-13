@@ -23,7 +23,8 @@ const NavLinks = ({user, onClick}:INavlinks) => {
                 <span>Logout</span>
               </div>: '' }
       
-      <a href={'https://api.whatsapp.com/send/?phone=5519996129909'} className='flex-center'><SiWhatsapp/><span>Whatsapp</span>  </a>
+      <a target={'_blank'} href={'https://api.whatsapp.com/send/?phone=5519996129909' }
+      rel='noreferrer' className='flex-center'><SiWhatsapp/><span>Whatsapp</span>  </a>
     </NavLinksContainer>
   );
 }
