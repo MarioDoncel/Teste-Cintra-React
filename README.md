@@ -139,7 +139,7 @@ Finished.
    ```sh
    npm install
    ```
-3. Configure your access to database, your pgcrypto key and JWT secret key on  `.env`
+3. Configure your environment variables  `.env`
 
    ```.env
     REACT_APP_BASE_URL = 'https://api.themoviedb.org/3/movie/'
