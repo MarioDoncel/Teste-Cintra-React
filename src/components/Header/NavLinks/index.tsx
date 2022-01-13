@@ -23,7 +23,7 @@ const NavLinks = ({user, onClick}:INavlinks) => {
                 <span>Logout</span>
               </div>: '' }
       
-      <Link to={'/'} className='flex-center'><SiWhatsapp/><span>Whatsapp</span>  </Link>
+      <Link to={'https://api.whatsapp.com/send/?phone=5519996129909'} className='flex-center'><SiWhatsapp/><span>Whatsapp</span>  </Link>
     </NavLinksContainer>
   );
 }
